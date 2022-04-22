@@ -24,7 +24,7 @@ Put your documentation here! Your text is rendered with [GitHub Flavored Markdow
     - Start showing the explore section
 
 - Show Looker Diagramm Visualizer
-- Show Data Docs
+- Show Data Docse
 
 - Building the dashboard:
     - From explore
