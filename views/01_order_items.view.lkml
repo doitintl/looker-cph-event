@@ -1,3 +1,5 @@
+include: "/views/02_order_facts.view"
+
     view: order_items {
       sql_table_name: looker-private-demo.ecomm.order_items ;;
       view_label: "Order Items"
@@ -368,10 +370,25 @@
         }
       }
 
+      parameter: parameter_1 {
+        default_value: "100"
+        type: number
+      }
+
+
+      parameter: parameter_3 {
+        default_value: "{% parameter order_facts.parameter_2.parameter_value %}"
+        type: number
+      }
+
+
+
+
       measure: return_rate {
         label: "Return Rate"
         type: number
         value_format_name: percent_2
+        #filters: [order_facts.parameter_2: "100"]
         sql: 1.0 * ${returned_count} / nullif(${count},0) ;;
       }
     }

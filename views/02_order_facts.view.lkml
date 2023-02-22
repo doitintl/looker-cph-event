@@ -17,7 +17,7 @@ view: order_facts {
   }
 
   dimension: order_id {
-    label: "Order ID"
+    label: "Order Idfjds"
     type: number
     hidden: yes
     primary_key: yes
@@ -60,5 +60,11 @@ view: order_facts {
     label: "Is First Purchase"
     type: yesno
     sql: ${order_sequence_number} = 1 ;;
+  }
+
+
+  parameter: parameter_2 {
+    default_value: "100"
+    type: number
   }
 }
