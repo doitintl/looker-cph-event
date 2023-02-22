@@ -1,7 +1,7 @@
 connection: "looker_partner_demo"
 
 include: "/views/**/*.view" # include all the views
-
+include: "/dashboards/*"
 
 ############ Model Configuration #############
 
