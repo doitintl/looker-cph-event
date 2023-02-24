@@ -5,6 +5,16 @@ include: "/dashboards/*"
 
 ############ Model Configuration #############
 
+access_grant: can_view_order_items {
+  user_attribute: pleo_demo_department
+  allowed_values: ["CRE"]
+}
+
+access_grant: can_view_order_facts {
+  user_attribute: pleo_demo_business_unit
+  allowed_values: ["US"]
+}
+
 datagroup: ecommerce_etl {
   sql_trigger: SELECT max(created_at) FROM ecomm.events ;;
   max_cache_age: "24 hours"
@@ -14,6 +24,7 @@ explore: order_items {
   label: "(1) Orders, Items and Users"
   description: "Use this explore to answer questions about orders"
   view_name: order_items
+  required_access_grants: [can_view_order_items]
 
   join: order_facts {
     type: left_outer
@@ -30,6 +41,7 @@ explore: order_items {
   }
 
   join: inventory_items {
+    required_access_grants: [can_view_order_facts]
     view_label: "Inventory Items"
     #Left Join only brings in items that have been sold as order_item
     type: full_outer
