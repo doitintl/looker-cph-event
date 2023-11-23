@@ -68,6 +68,7 @@ include: "/views/02_order_facts.view"
         sql: ${TABLE}.order_id ;;
       }
 
+
       dimension: order_id {
         label: "Order ID"
         type: number
